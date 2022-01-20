@@ -6,12 +6,18 @@ const Landing = () => {
   const [data, setData] = useState({
     topic: {
       name: "",
-      CAPname: "",
       stargazerCount: 0,
       relatedTopics: [],
     },
   });
 
+  /**
+   * @description Gets Topic data from the Github GraphQl API and sets it to the state
+   * @param {string} topicName - the name of the topic to get data for
+   * @returns {void}
+   * @memberof Landing
+   * @requires getGHRelatedTopicsAndStarGazers
+   */
   const getData = async (name) => {
     await getGHRelatedTopicsAndStarGazers(name)
       .then((res) => {
@@ -27,7 +33,7 @@ const Landing = () => {
   }, []);
 
   return (
-    <Section className="pageLimiter" id="landingPage">
+    <Section className="pageLimiter">
       <h1>¡GitHub Topic Explorer!</h1>
       <Article>
         <h2>{data.topic.name}</h2>
@@ -38,7 +44,7 @@ const Landing = () => {
       <br />
       <h3>relatedTopics:</h3>
       <ul>
-        {data.topic.relatedTopics.map((topic, index) => {
+        {data.topic.relatedTopics.map((topic) => {
           return (
             <Li key={topic.name} onClick={() => getData(topic.name)}>
               <span>
@@ -52,6 +58,9 @@ const Landing = () => {
           );
         })}
       </ul>
+      {data.topic.name !== "react" && (
+        <p onClick={() => getData()}>back to React :)</p>
+      )}
     </Section>
   );
 };
