@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getGHRelatedTopicsAndStarGazers } from "../../network/extAPI";
+import { Section, Li, Article } from "./LandingStyle";
 
 const Landing = () => {
   const [data, setData] = useState({
@@ -26,33 +27,32 @@ const Landing = () => {
   }, []);
 
   return (
-    <section className="pageLimiter" id="landingPage">
+    <Section className="pageLimiter" id="landingPage">
       <h1>¡GitHub Topic Explorer!</h1>
-      <br />
-      <h2>{data.topic.name}</h2>
-      <span>stargazerCount: {data.topic.stargazerCount}</span>
-      <br />
+      <Article>
+        <h2>{data.topic.name}</h2>
+        <span>
+          stargazerCount: <b>{data.topic.stargazerCount}</b>
+        </span>
+      </Article>
       <br />
       <h3>relatedTopics:</h3>
-      <br />
       <ul>
         {data.topic.relatedTopics.map((topic, index) => {
           return (
-            <li key={topic.name}>
+            <Li key={topic.name} onClick={() => getData(topic.name)}>
               <span>
                 <b>{topic.name}</b>
               </span>
               <br />
               <span>stargazerCount: {topic.stargazerCount}</span>
               <br />
-              <span onClick={() => getData(topic.name)}>view more...</span>
-              <br />
-              <br />
-            </li>
+              <span>view more...</span>
+            </Li>
           );
         })}
       </ul>
-    </section>
+    </Section>
   );
 };
 

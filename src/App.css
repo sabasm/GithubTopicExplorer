@@ -21,42 +21,10 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
-
+ul li {
+  list-style-type: none;
+}
 main {
   min-height: 100vh;
   padding: calc(var(--nav-size) + 0.8rem) 1rem 1rem 1rem;
-}
-/* TO BE FRAGMENTED INTO CSS-IN-JS */
-/*    HEADER COMPONENT */
-nav {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-nav a {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--txt-primary_color);
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-}
-
-header {
-  position: fixed;
-  width: 100%;
-  background: var(--background-primary_color);
-  /* border-bottom: 0.2rem solid var(--background-secondary_color); */
-}
-
-nav,
-header {
-  height: var(--nav-size);
-  --txt-primary_color: #ebebeb;
 }
