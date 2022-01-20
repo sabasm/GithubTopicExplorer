@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+/* CORE CSS */
+:root {
+  --nav-size: 3.5rem;
+  --txt-primary_color: #ebebeb;
+  --background-primary_color: #313131;
+  --background-secondary_color: #818181;
+}
+body {
+  background-color: var(--background-primary_color);
+  color: var(--txt-primary_color);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav,
+.pageLimiter {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 144rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  color: inherit;
+  text-decoration: inherit;
 }
 
-.App-header {
-  background-color: #282c34;
+main {
   min-height: 100vh;
+  padding: calc(var(--nav-size) + 0.8rem) 1rem 1rem 1rem;
+}
+/* TO BE FRAGMENTED INTO CSS-IN-JS */
+/*    HEADER COMPONENT */
+nav {
   display: flex;
-  flex-direction: column;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav a {
+  display: flex;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--txt-primary_color);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+header {
+  position: fixed;
+  width: 100%;
+  background: var(--background-primary_color);
+  /* border-bottom: 0.2rem solid var(--background-secondary_color); */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav,
+header {
+  height: var(--nav-size);
+  --txt-primary_color: #ebebeb;
 }
