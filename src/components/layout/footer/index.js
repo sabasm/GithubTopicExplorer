@@ -7,7 +7,7 @@ const Footer = () => {
         code available at Github
       </a>
       ! <br />
-      <small>- Sabás Mendívil</small>
+      <small>- Sabás Mendívil :)</small>
     </footer>
   );
 };
